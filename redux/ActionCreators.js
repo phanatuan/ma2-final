@@ -1,4 +1,4 @@
-import { INCREMENT_DATE, DECREMENT_DATE, DELETE_TRANSACTION_ITEM } from "./ActionTypes";
+import { INCREMENT_DATE, DECREMENT_DATE, DELETE_TRANSACTION_ITEM, UPDATE_TRANSACTION_ITEM } from "./ActionTypes";
 
 
 let nextTransactionItem = 0; 
@@ -27,3 +27,11 @@ export const deleteTransactionItem = (id) => ({
     type: DELETE_TRANSACTION_ITEM, 
     payload: {id}
 })
+
+// export const updateTransactionItem = (id, item) => ({ 
+//     type: UPDATE_TRANSACTION_ITEM,
+//     payload: { 
+//         id: id,
+//         item: item
+//     }
+// })

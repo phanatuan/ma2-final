@@ -1,9 +1,9 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from '../screens/HomeScreen';
 import React, { Component } from 'react';
-import { Icon} from 'native-base';
+import { Icon } from 'native-base';
 import TransactionList from './TransactionList';
-import AddTransaction from './AddTransaction';
+import AddTransactionForm from './AddTransactionForm';
 
 const MainNavigator = createStackNavigator({
   Home: {
@@ -15,7 +15,8 @@ const MainNavigator = createStackNavigator({
         />
     })
   },
-  AddTransaction: { screen: AddTransaction },
+  // AddTransaction: { screen: AddTransaction },
+  AddTransactionForm: {screen: AddTransactionForm},
   TransactionList: { screen: TransactionList },
 })
 

@@ -7,7 +7,6 @@ import {TouchableOpacity} from 'react-native';
 import ShowToday from './ShowToday';
 import moment from 'moment';
 
-
 const mapStateToProps = (state) => {
     return { date: state.displayDate.displayDate }
 }
@@ -22,37 +21,17 @@ const mapDispatchToProps = (dispatch) => {
 class DayShowView extends Component {
     constructor(props) {
         super(props);
-    }
-        // this.state = { 
-        //     date: moment().format('ddd, DD MMM')}
-    //     this.incrementDate = this.incrementDate.bind(this);
-    //     this.decrementDate = this.decrementDate.bind(this);
-
-    // }
-
-    // incrementDate = () => { 
-    //     this.setState({ 
-    //         date: moment(this.state.date).add(1,'day').format('ddd, DD MMM')
-    //     })
-    // }
-
-    // decrementDate = () => { 
-    //     this.setState({ 
-    //         date: moment(this.state.date).subtract(1,'day').format('ddd, DD MMM')
-    //     })
-    // }
-    
+    }  
 
     render() {
-        // console.log(date);
+        
         const { decrementDate, incrementDate, date } = this.props
         let addDate = moment(date).add(1,'day').format('ddd, DD MMM');
         let subtractDate = moment(date).subtract(1,'day').format('ddd, DD MMM');
-        // console.log(addDate, subtractDate);
 
         return (
             <>
-            <Text>{date}</Text>
+            <Text>{this.props.displayDate}</Text>
             <Grid>
                 <Col size={5}>
                     <TouchableOpacity onPress={() => decrementDate(subtractDate)}>
@@ -73,7 +52,5 @@ class DayShowView extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DayShowView);            
-
-// export default DayShowView;            
+export default connect(mapStateToProps, mapDispatchToProps)(DayShowView);    
 

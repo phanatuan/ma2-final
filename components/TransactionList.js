@@ -10,10 +10,10 @@ export default class TransactionList extends Component {
 		super(props);
 	}
 
-	_keyExtractor = (item) => item.id
+	_keyExtractor = (item) => item.id.toString()
 	_renderTransaction = ({ item }) => {
 		return (
-			<TouchableOpacity onPress={() => this.props.navigate('AddTransaction', {transactionId: item.id})}>
+			<TouchableOpacity onPress={() => this.props.navigate('AddTransactionForm', {transactionId: item.id})}>
 				<CardItem >
 					<Grid>
 						<Col size={20}>
@@ -37,12 +37,10 @@ export default class TransactionList extends Component {
 	}
 
 	render() {
-		// console.log('Transaction List ....');
-		// console.log(this.props.transactions);
 		return (
 			<Card>
 				<FlatList
-					data={this.props.transactions}
+					data={this.props.displayTransactionByDate}
 					renderItem={this._renderTransaction}
 					keyExtractor={this._keyExtractor}
 				/>

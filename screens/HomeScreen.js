@@ -2,15 +2,16 @@ import React, {Component} from 'react';
 import { Container, View, Text, Content, Button, Form } from 'native-base';
 import TransactionList from '../components/TransactionList';
 import DayShowView from '../components/DayShowView';
-import ShowToday from '../components/ShowToday';
 import FAB from '../components/FAB';
-import {store} from '../App';
+import { store } from '../redux/ConfigureStore';
 import { connect } from 'react-redux';
+import CategoryView from '../components/CategoryView';
 
 
 mapStateToProps = state =>  { 
   return { 
-    transactions: state.transactions.transactions
+    transactions: state.transactions.transactions,
+    displayDate: state.displayDate.displayDate
   }
 }
 
@@ -22,17 +23,24 @@ class HomeScreen extends Component {
 
 
   render() {
-    // const filterTrasaction = transactions.filter(transaction => transaction.date === displayDate);
     const { navigate } = this.props.navigation;
     console.log('Storeeeeee .....1 ') ;
     console.log(store.getState());
+    const displayTransactionByDate = this.props.transactions.filter((transaction) => transaction.date == this.props.displayDate)
+    console.log('Transaction By Date ....');
+    // console.log(displayTransactionByDate);
+    console.log(this.props.transactions);
+
     return (
       <Container>
         <Content>
-          <DayShowView/>
-          <TransactionList transactions={this.props.transactions} navigate={this.props.navigation.navigate}/>
+          <DayShowView displayDate={this.props.displayDate}/>
+          <TransactionList transactions={this.props.transactions} 
+                          displayTransactionByDate = {displayTransactionByDate} 
+                          navigate={this.props.navigation.navigate}/>
         </Content>
         <FAB navigate={navigate}/>
+        {/* <CategoryView/> */}
       </Container>
       
     );

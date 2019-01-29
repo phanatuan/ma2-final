@@ -6,20 +6,21 @@ import { displayDate } from './redux/displayDate';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
 import { reducer as formReducer } from 'redux-form';
+import { store } from './redux/ConfigureStore';
 
-const logger = createLogger();
-const rootReducer = combineReducers({
-  form: formReducer, 
-  displayDate,
-  transactions
-});
+// const logger = createLogger();
+// const rootReducer = combineReducers({
+//   form: formReducer, 
+//   displayDate,
+//   transactions
+// });
 
-export const store = createStore(rootReducer, applyMiddleware(logger));
+// export const store = createStore(rootReducer, applyMiddleware(logger));
 
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store = {store}>
         <Main />
       </Provider>
     );
