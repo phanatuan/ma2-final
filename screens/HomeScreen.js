@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import { Container, View, Text, Content, Button, Form } from 'native-base';
+import { Container, Content} from 'native-base';
 import TransactionList from '../components/TransactionList';
 import DayShowView from '../components/DayShowView';
 import FAB from '../components/FAB';
 import { store } from '../redux/ConfigureStore';
 import { connect } from 'react-redux';
-import CategoryView from '../components/CategoryView';
 
 
 mapStateToProps = state =>  { 
@@ -24,13 +23,10 @@ class HomeScreen extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log('Storeeeeee .....1 ') ;
-    console.log(store.getState());
+    // console.log('Storeeeeee .....1 ') ;
+    // console.log(store.getState());
     const displayTransactionByDate = this.props.transactions.filter((transaction) => transaction.date == this.props.displayDate)
-    console.log('Transaction By Date ....');
-    // console.log(displayTransactionByDate);
-    console.log(this.props.transactions);
-
+    
     return (
       <Container>
         <Content>
@@ -40,9 +36,7 @@ class HomeScreen extends Component {
                           navigate={this.props.navigation.navigate}/>
         </Content>
         <FAB navigate={navigate}/>
-        {/* <CategoryView/> */}
       </Container>
-      
     );
 }
 }

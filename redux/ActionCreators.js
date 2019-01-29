@@ -28,10 +28,10 @@ export const deleteTransactionItem = (id) => ({
     payload: {id}
 })
 
-// export const updateTransactionItem = (id, item) => ({ 
-//     type: UPDATE_TRANSACTION_ITEM,
-//     payload: { 
-//         id: id,
-//         item: item
-//     }
-// })
+export const updateTransactionItem = (itemId, item) => ({ 
+    type: UPDATE_TRANSACTION_ITEM,
+    payload: { 
+        item,
+        itemId 
+    }
+})

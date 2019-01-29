@@ -20,9 +20,8 @@ export default class FAB extends Component {
             containerStyle={{}}
             style={{ backgroundColor: '#5067FF' }}
             position= "bottomRight"
-            onPress = {() => this.props.navigate('AddTransactionForm',{transactionId: null})}
-        >
-        <Icon name="md-add" />
+            onPress = {() => this.props.navigate('AddTransactionForm',{transactionId: null})}>
+         <Icon name="md-add" />
         </Fab>
     );
 }

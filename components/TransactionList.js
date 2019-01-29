@@ -37,6 +37,11 @@ export default class TransactionList extends Component {
 	}
 
 	render() {
+		let totalAmount = 0;
+		this.props.displayTransactionByDate.forEach((transaction) => {
+			totalAmount += transaction.amount
+		}) 
+		
 		return (
 			<Card>
 				<FlatList
@@ -44,6 +49,7 @@ export default class TransactionList extends Component {
 					renderItem={this._renderTransaction}
 					keyExtractor={this._keyExtractor}
 				/>
+				<Text>Total Amount: {totalAmount}</Text>
 			</Card>
 		);
 	}

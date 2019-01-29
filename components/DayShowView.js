@@ -4,7 +4,6 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import { connect } from 'react-redux';
 import { decrementDate, incrementDate } from '../redux/ActionCreators';
 import {TouchableOpacity} from 'react-native';
-import ShowToday from './ShowToday';
 import moment from 'moment';
 
 const mapStateToProps = (state) => {
@@ -26,8 +25,8 @@ class DayShowView extends Component {
     render() {
         
         const { decrementDate, incrementDate, date } = this.props
-        let addDate = moment(date).add(1,'day').format('ddd, DD MMM');
-        let subtractDate = moment(date).subtract(1,'day').format('ddd, DD MMM');
+        let addDate = moment(date).add(1,'day').format('DD MMM');
+        let subtractDate = moment(date).subtract(1,'day').format('DD MMM');
 
         return (
             <>

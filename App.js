@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './components/MainComponent';
+import {Main} from './components/MainComponent';
 import { Provider } from 'react-redux';
 import { transactions } from './redux/transactionItem';
 import { displayDate } from './redux/displayDate';

@@ -2,7 +2,7 @@ import * as ActionType from './ActionTypes';
 import moment from 'moment';
 
 const initialState = { 
-    displayDate: moment(new Date()).format('ddd, DD MMM')
+    displayDate: moment(new Date()).format('DD MMM')
 }
 
 export const displayDate = (state = initialState, action = {} ) => { 
